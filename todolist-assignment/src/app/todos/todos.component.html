@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+    <div class="container-fluid">
+        <h3>Todos</h3>
+        <form>
+        <div class="mb-3">
+            <input type="text" name="iname" [(ngModel)]="itemForm.iname" (keydown.enter)="create()" placeholder="What needs to be done?">
+            <!-- <button (click)="create()" class="btn btn-primary">add</button> -->
+        </div> 
+        <div class="mb-3">
+        <table>
+        <tbody>
+            
+        <tr *ngFor="let item of allitems">         
+            <td><input type ="checkbox" name="chk" #confirmed [(ngModel)]="confirmed.checked"></td>       <!-- #confirmed [disabled]="!confirmed.checked"   -->  
+            <td>{{item.iname}}</td>
+            <td><button (click)="delete(item.id)" [disabled]="!confirmed.checked">Remove</button></td>
+        </tr>    
+       
+        </tbody>
+        </table>  
+        </div>
+</form>   
+    </div>
+  </nav>
+  
+
+<!-- <div>
+</div> -->
